@@ -68,6 +68,7 @@ const words = [
     "xerox", "yard", "yawn", "year", "yellow", "yes", "yesterday", "yogurt", "you", "young", "your", "youth", "yummy",
     "zebra", "zinc", "zone", "zoo"
   ];
+let countdown = 0;
 let inputs = [];
 let corrects = 0;
 let time = 60;
@@ -95,11 +96,11 @@ input.addEventListener("keyup", function(event) {
     const palavraCorreta = list[0];
     if (palavraDigitada === palavraCorreta) {
       corrects++;
-      list.shift();
       document.getElementById(palavraCorreta).classList.add("true");
     } else {
       document.getElementById(palavraCorreta).classList.add("false");
     }
+    list.shift();
     input.value = "";
     input.focus();
   }
@@ -119,6 +120,12 @@ function atualizarTempo() {
   }
 }
 
+function startTimer() {
+  if(countdown != 1) {
+    countdown = 1;
+    setInterval(atualizarTempo, 1000);
+  }
+}
+
 gerarPalavras();
 input.focus();
-setInterval(atualizarTempo, 1000);

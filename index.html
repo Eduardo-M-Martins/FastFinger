@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Teste de digitação</title>
+  <title>FastFinger</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Teste de digitação</h1>
-  <p>Digite as palavras abaixo:</p>
+  <h1>Typing Test</h1>
   <div id="words"></div>
-  <input type="text" id="input" autocomplete="off">
-  <div id="result"></div>
+  <input type="text" id="input" autocomplete="off" onkeydown="startTimer();">
+  <div id="result">Palavras corretas: 0<br>Tempo restante: 60s;</div>
   <script src="script.js"></script>
 </body>
 </html>

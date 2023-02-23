@@ -41,10 +41,12 @@ h1 {
 
 .true {
   background-color: #00aa00 !important;
+  color: white !important;
 }
 
 .false {
   background-color: #ff0000 !important;
+  color: white !important;
 }
 
 
