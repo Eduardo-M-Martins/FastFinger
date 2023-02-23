@@ -81,7 +81,7 @@ function gerarPalavras() {
   list = [];
   corrects = 0;
   words.sort(() => Math.random() - 0.5);
-  for (let i = 0; i < 225; i++) {
+  for (let i = 0; i < 300; i++) {
     const word = words[i];
     
     wordsDiv.innerHTML += `<span id='${word}'>${word}</span>`;
