@@ -81,7 +81,7 @@ function gerarPalavras() {
   list = [];
   corrects = 0;
   
-  for (let i = 0; i < 120; i++) {
+  for (let i = 0; i < 225; i++) {
     const index = Math.floor(Math.random() * words.length);
     const word = words[index];
     
