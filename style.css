@@ -19,10 +19,11 @@ h1 {
   display: inline-block;
   margin: 5px;
   padding: 10px;
-  background-color: grey;
-  color: white;
+  background-color: lightgray;
+  color: black;
   font-size: 16px;
   border-radius: 4px;
+  border: 2px solid black;
 }
 
 #input {
@@ -39,9 +40,14 @@ h1 {
 }
 
 .true {
-  background-color: green !important;
+  background-color: #00aa00 !important;
 }
 
 .false {
-  background-color: red !important;
+  background-color: #ff0000 !important;
+}
+
+
+.ptr {
+  border: 2px solid #0000ff !important;
 }
