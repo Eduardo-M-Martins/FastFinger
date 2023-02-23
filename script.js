@@ -110,7 +110,7 @@ function atualizarTempo() {
   result.innerHTML = `Palavras corretas: ${corrects}<br>
                           Tempo restante: ${time}s`;
 
-  if (time === 0) {
+  if (time <= 0 || list.length === 0) {
     input.removeEventListener("keyup", this);
     input.setAttribute("disabled", true);
 
