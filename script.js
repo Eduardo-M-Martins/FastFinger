@@ -85,22 +85,22 @@ function gerarPalavras() {
     const index = Math.floor(Math.random() * words.length);
     const word = words[index];
     
-    wordsDiv.innerHTML += `<span>${word}</span>`;
+    wordsDiv.innerHTML += `<span id='${word}'>${word}</span>`;
     inputs.push(word);
   }
 }
 
 input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 32) { // espaço
+  if (event.keyCode === 32 || event.keyCode === 13) { // space or enter
     const palavraDigitada = input.value.trim();
     const palavraCorreta = inputs[0];
-    
+    alert(palavraCorreta);
     if (palavraDigitada === palavraCorreta) {
       corrects++;
       inputs.shift();
-      wordsDiv.children[0].classList.add("acertou");
+      document.getElementById(palavraCorreta).classList.add("true");
     } else {
-      wordsDiv.children[0].classList.add("errou");
+      document.getElementById(palavraCorreta).classList.add("false");
     }
     
     input.value = "";

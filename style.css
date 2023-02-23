@@ -19,7 +19,7 @@ h1 {
   display: inline-block;
   margin: 5px;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: grey;
   color: white;
   font-size: 16px;
   border-radius: 4px;
@@ -36,4 +36,12 @@ h1 {
 #result {
   margin-top: 20px;
   font-size: 24px;
+}
+
+.true {
+  background-color: green !important;
+}
+
+.false {
+  background-color: red !important;
 }
