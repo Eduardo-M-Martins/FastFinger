@@ -1,4 +1,4 @@
-const palavras = [
+const words = [
   "a", "an", "about", "accountant", "actor", "after", "afternoon", "again", "ago", "airplane", "all", "also", "always",
   "and", "animal", "another", "answer", "ant", "any", "anymore", "apartment", "apple", "architect", "are", "arm", "around",
   "arrive", "article", "artist", "at", "ate", "Arthur", "Anne", "Amber", "Austin", "Alice", "Alvin", "Ashley", "Abigail",
@@ -69,59 +69,59 @@ const palavras = [
   "zebra", "zinc", "zone", "zoo"
 ];
 
-let palavrasDigitadas = [];
-let palavrasCorretas = 0;
-let tempoRestante = 60;
-const entrada = document.getElementById("entrada");
-const resultado = document.getElementById("resultado");
-const palavrasDiv = document.getElementById("palavras");
+let inputs = [];
+let corrects = 0;
+let time = 60;
+const input = document.getElementById("input");
+const result = document.getElementById("result");
+const wordsDiv = document.getElementById("words");
 
 function gerarPalavras() {
-  palavrasDiv.innerHTML = "";
-  palavrasDigitadas = [];
-  palavrasCorretas = 0;
+  wordsDiv.innerHTML = "";
+  inputs = [];
+  corrects = 0;
   
-  for (let i = 0; i < 20; i++) {
-    const indice = Math.floor(Math.random() * palavras.length);
-    const palavra = palavras[indice];
+  for (let i = 0; i < 120; i++) {
+    const index = Math.floor(Math.random() * words.length);
+    const word = words[index];
     
-    palavrasDiv.innerHTML += `<span>${palavra}</span>`;
-    palavrasDigitadas.push(palavra);
+    wordsDiv.innerHTML += `<span>${word}</span>`;
+    inputs.push(word);
   }
 }
 
-entrada.addEventListener("keyup", function(event) {
+input.addEventListener("keyup", function(event) {
   if (event.keyCode === 32) { // espaço
-    const palavraDigitada = entrada.value.trim();
-    const palavraCorreta = palavrasDigitadas[0];
+    const palavraDigitada = input.value.trim();
+    const palavraCorreta = inputs[0];
     
     if (palavraDigitada === palavraCorreta) {
-      palavrasCorretas++;
-      palavrasDigitadas.shift();
-      palavrasDiv.children[0].classList.add("acertou");
+      corrects++;
+      inputs.shift();
+      wordsDiv.children[0].classList.add("acertou");
     } else {
-      palavrasDiv.children[0].classList.add("errou");
+      wordsDiv.children[0].classList.add("errou");
     }
     
-    entrada.value = "";
-    entrada.focus();
+    input.value = "";
+    input.focus();
   }
 });
 
 function atualizarTempo() {
-  tempoRestante--;
-  resultado.innerHTML = `Palavras corretas: ${palavrasCorretas}<br>
-                          Tempo restante: ${tempoRestante}s`;
+  time--;
+  result.innerHTML = `Palavras corretas: ${corrects}<br>
+                          Tempo restante: ${time}s`;
 
-  if (tempoRestante === 0) {
-    entrada.removeEventListener("keyup", this);
-    entrada.setAttribute("disabled", true);
+  if (time === 0) {
+    input.removeEventListener("keyup", this);
+    input.setAttribute("disabled", true);
 
-    resultado.innerHTML = `Teste finalizado!<br> 
-                            Palavras corretas: ${palavrasCorretas}`;
+    result.innerHTML = `Teste finalizado!<br> 
+                            Palavras corretas: ${corrects}`;
   }
 }
 
 gerarPalavras();
-entrada.focus();
+input.focus();
 setInterval(atualizarTempo, 1000);
