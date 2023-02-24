@@ -47,6 +47,10 @@ h1 {
   color: #ff0000 !important;
 }
 
+.non {
+  color: black !important;
+}
+
 .true {
   background-color: #00aa00 !important;
   color: white !important;
