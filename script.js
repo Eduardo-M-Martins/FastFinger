@@ -100,8 +100,9 @@ input.addEventListener("keyup", function (event) {
     } else {
       document.getElementById(palavraCorreta).classList.add("false");
     }
+    document.getElementById(list[0]).classList.remove("non");
     document.getElementById(palavraCorreta).classList.remove("nok");
-    document.getElementById(palavraCorreta).classList.add("ok");
+    document.getElementById(palavraCorreta).classList.remove("ok");
     document.getElementById(list[0]).classList.remove("ptr");
     list.shift();
     document.getElementById(list[0]).classList.add("ptr");
@@ -132,7 +133,7 @@ function startTimer(value) {
   let error = true;
   for (var i = 0; i < value.length; i++) if(list[0][i]!=value[i]) error=false;
   if (value != "") {
-    if (!error) {
+    if (error) {
       document.getElementById(list[0]).classList.remove("nok");
       document.getElementById(list[0]).classList.add("ok");
     } else {
@@ -140,7 +141,9 @@ function startTimer(value) {
       document.getElementById(list[0]).classList.add("nok");
     }
   } else {
-    document.getElementById(list[0]).classList.remove("non");
+    document.getElementById(list[0]).classList.remove("nok");
+    document.getElementById(list[0]).classList.remove("ok");
+    document.getElementById(list[0]).classList.add("non");
   }
 }
 
