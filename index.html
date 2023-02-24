@@ -8,7 +8,7 @@
 <body>
   <h1>Typing Test</h1>
   <div id="words"></div>
-  <input type="text" id="input" autocomplete="off" onkeydown="startTimer();">
+  <input type="text" id="input" autocomplete="off" onkeydown="startTimer(this.value);">
   <div id="result">Palavras corretas: 0<br>Tempo restante: 60s;</div>
   <script src="script.js"></script>
 </body>

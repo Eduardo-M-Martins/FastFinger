@@ -81,12 +81,13 @@ function gerarPalavras() {
   list = [];
   corrects = 0;
   words.sort(() => Math.random() - 0.5);
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 360; i++) {
     const word = words[i];
     
     wordsDiv.innerHTML += `<span id='${word}'>${word}</span>`;
     list.push(word);
   }
+  document.getElementById(list[0]).classList.add("ptr");
 }
 
 input.addEventListener("keyup", function(event) {
@@ -99,7 +100,11 @@ input.addEventListener("keyup", function(event) {
     } else {
       document.getElementById(palavraCorreta).classList.add("false");
     }
+    document.getElementById(palavraCorreta).classList.remove("nok");
+    document.getElementById(palavraCorreta).classList.add("ok");
+    document.getElementById(list[0]).classList.remove("ptr");
     list.shift();
+    document.getElementById(list[0]).classList.add("ptr");
     input.value = "";
     input.focus();
   }
@@ -119,10 +124,17 @@ function atualizarTempo() {
   }
 }
 
-function startTimer() {
+function startTimer(value) {
   if(countdown != 1) {
     countdown = 1;
     setInterval(atualizarTempo, 1000);
+  }
+  if(palavraCorreta.includes(value)){
+    document.getElementById(palavraCorreta).classList.remove("nok");
+    document.getElementById(palavraCorreta).classList.add("ok");
+  } else {
+    document.getElementById(palavraCorreta).classList.remove("ok");
+    document.getElementById(palavraCorreta).classList.add("nok");
   }
 }
 
