@@ -102,7 +102,6 @@ input.addEventListener("keyup", function (event) {
     }
     document.getElementById(list[0]).classList.remove("non");
     document.getElementById(palavraCorreta).classList.remove("nok");
-    document.getElementById(palavraCorreta).classList.remove("ok");
     document.getElementById(list[0]).classList.remove("ptr");
     list.shift();
     document.getElementById(list[0]).classList.add("ptr");
@@ -135,14 +134,13 @@ function startTimer(value) {
   if (value != "") {
     if (error) {
       document.getElementById(list[0]).classList.remove("nok");
-      document.getElementById(list[0]).classList.add("ok");
+      document.getElementById(list[0]).classList.remove("non");
     } else {
-      document.getElementById(list[0]).classList.remove("ok");
+      document.getElementById(list[0]).classList.remove("non");
       document.getElementById(list[0]).classList.add("nok");
     }
   } else {
     document.getElementById(list[0]).classList.remove("nok");
-    document.getElementById(list[0]).classList.remove("ok");
     document.getElementById(list[0]).classList.add("non");
   }
 }
