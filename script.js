@@ -129,12 +129,12 @@ function startTimer(value) {
     countdown = 1;
     setInterval(atualizarTempo, 1000);
   }
-  if(palavraCorreta.includes(value)){
-    document.getElementById(palavraCorreta).classList.remove("nok");
-    document.getElementById(palavraCorreta).classList.add("ok");
+  if(list[0].includes(value)){
+    document.getElementById(list[0]).classList.remove("nok");
+    document.getElementById(list[0]).classList.add("ok");
   } else {
-    document.getElementById(palavraCorreta).classList.remove("ok");
-    document.getElementById(palavraCorreta).classList.add("nok");
+    document.getElementById(list[0]).classList.remove("ok");
+    document.getElementById(list[0]).classList.add("nok");
   }
 }
 
